@@ -1,0 +1,45 @@
+<!-- Coded by Eric Chen / D1172271
+	 ISTM Purdue
+
+	 Date: 2023/11/25
+	 CopyRight: GNU GPLv3
+	 DESC: RollColling FLASK Server -->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Face RollCalling System </title>
+		<link rel="stylesheet" type="text/css" href="../Static/style.css">
+		<script type="text/javascript" src="../Static/script.js"></script>
+	</head>
+
+	<body class="dark-mode">
+		<div class="main-banner">
+			<h1> FACE ROLLCALLING SYSTEM </h1>
+			<p> Originally coded by Eric Chen, D1172271, ISTM Purdue </p>
+		</div>
+
+		<div class="description-banner">
+			<p>
+				Description: <br>
+				This is a online face rollcalling ststem, <br>
+				running on backend with a combination of Python + FLASK + PyQt6, <br> 
+				developed for the department of architecture's course: "Python programming & Applications". <br>
+				Project is under the license GNU GPLv3, and doesn't comes with any warranty. <br>
+			</p>
+		</div>
+
+		<div class="centered-block">
+			<form id="myform">
+				<label for="NID"> NID: </label> <br>
+				<input type="text" name="NID"> <br>
+				<button type="button" id="snapshot"> Take Snapshot </button>
+				<button type="submit" id="submit" disabled> Submit </button> 
+			</form>
+
+			<video id="webcam" autoplay> </video><br>
+			<canvas id="snapshotImage" style="display:none;"/></canvas>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+.dark-mode {
+	background-color: black;
+    color: white; /* Setting text color to white for readability */
+    font-family: Arial, sans-serif;
+}
+
+
+.main-banner {
+    background: linear-gradient(to right, #4E54C8, #8F94FB); /* Gradient background */
+    text-align: center; /* Center align text */
+    padding: 40px 20px; /* Padding around the text */
+    color: white; /* White text for contrast */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px; /* Margin around the banner */
+}
+
+
+.main-banner h1 {
+    margin: 0 0 10px 0; /* Margin for the heading */
+    font-size: 2.5em; /* Larger font size for heading */
+}
+
+
+.main-banner p {
+    margin: 0; /* Remove default margin of paragraph */
+    font-size: 1.2em; /* Slightly larger font size for the paragraph */
+}
+
+
+.description-banner {
+    background-color: #005A9C; /* Deep blue background */
+    color: #FFD700; /* Gold-colored text for contrast */
+    text-align: center; /* Center align text */
+    padding: 15px 0; /* Padding around the text */
+    font-family: 'Arial', sans-serif; /* Font style */
+    border-top: 3px solid #FFD700; /* Gold-colored top border for accent */
+    border-bottom: 3px solid #FFD700; /* Gold-colored bottom border */
+}
+
+
+.discription-banner p {
+    margin: 0; /* Remove default margin of paragraph */
+    padding: 0 10px; /* Padding on the sides */
+    font-size: 16px; /* Slightly larger font size for readability */
+    line-height: 1.6; /* Increased line spacing */
+}
+
+
+.centered-block {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+input[type=text], button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 90%;
+}
+
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+button:disabled {
+    background-color: #666;
+}
+
+
+/* Added styles for video and canvas */
+#webcam, #snapshot_image {
+    width: 100%; /* Make them take full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block display for proper margin handling */
+    margin: 0 auto; /* Auto margins for horizontal centering */
+}
+
+/* Adjusted canvas position */
+#canvas {
+    position: relative;  /* Change to relative for testing */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black; /* Add a border for visibility */
+}
+
+
+.success-block {
+    text-align: center;
+    background-color: #333; /* Dark background for the block */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Adds a shadow for better visibility */
+}
