@@ -18,11 +18,12 @@ class WebpageAPI:
 	__HALT_SIGNAL = None
 	UPLOAD_FOLDER = None
 	UPDATE_SIGNAL = None
+    TARGET_FOLDER = None
 	API = Flask(__name__, template_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Template'),
 						  static_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Static'))
 
 
-	def __init__(self, interface, port, upload_folder, update_signal):
+	def __init__(self, interface, port, upload_folder, update_signal, target_folder):
 		# initialize some important instance attribute
 		self.thread = threading.Thread(target=self.__start_server)
 		self.thread.daemon = True # incase the program was fucked up, like immdeiate crash
@@ -39,6 +40,7 @@ class WebpageAPI:
 		WebpageAPI.__HALT_SIGNAL = threading.Event() # elegent shutdown solution
 		WebpageAPI.UPLOAD_FOLDER = upload_folder
 		WebpageAPI.UPDATE_SIGNAL = update_signal
+        WebpageAPI.TARGET_FOLDER = target_folder
 
 
 	# start the server in a seperate thread to solve the halting GUI problem

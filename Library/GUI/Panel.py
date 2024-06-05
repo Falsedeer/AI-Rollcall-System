@@ -36,6 +36,7 @@ class RollCalling(QWidget):
 		self.logger = logging.getLogger(__name__)
 		self.datetime = datetime.date.today()
 		self.upload_base_folder = os.path.join("Uploads", self.datetime.strftime('%Y-%m-%d'))
+        self.target_image_folder = "Targets"
 
 		# signal connecting
 		self.Calender.setEnabled(False)
