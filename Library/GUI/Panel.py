@@ -49,7 +49,7 @@ class RollCalling(QWidget):
         self.Back_Button.clicked.connect(lambda: self.StackedWidget.setCurrentIndex(0))
 
         # configure the custom flask instance with qt signal
-        self.server = API.WebpageAPI(self.interface, self.port, self.upload_base_folder, self.UPDATE_SIGNAL)
+        self.server = API.WebpageAPI(self.interface, self.port, self.upload_base_folder, self.UPDATE_SIGNAL, self.target_image_folder)
 
         # try locating the server path
         local_ip = Networking.get_local_ip()

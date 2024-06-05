@@ -2,14 +2,14 @@ import os
 from deepface import DeepFace
 
 
-class FacialRecognition:
+class FacialRecognitionClass:
     TARGET_FOLDER = None
     pass
 
 
 
     def __init__(self, targetFolder: str):
-        FacialRecognition.TARGET_FOLDER = targetFolder
+        FacialRecognitionClass.TARGET_FOLDER = targetFolder
 
         print(self.TARGET_FOLDER)
     #end
@@ -17,7 +17,7 @@ class FacialRecognition:
     def recognizeFace(self, imagePath: str, studentId: str):
         checkImagePath = imagePath 
         #targetImagePath = os.path.join(os.path.dirname(__name__), FacialRecognition.TARGET_FOLDER, studentId)
-        targetImagePath = FacialRecognition.TARGET_FOLDER + "/" + studentId + ".png"
+        targetImagePath = FacialRecognitionClass.TARGET_FOLDER + "/" + studentId + ".png"
         
         print(checkImagePath)
         print(targetImagePath)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     target_folder = "../../Targets"
     imagePath = "../../Targets/D1166597.png"
     studentId = "D1166597"
-    facialRecognition = FacialRecognition(target_folder)
+    facialRecognition = FacialRecognitionClass(target_folder)
 
 
 
