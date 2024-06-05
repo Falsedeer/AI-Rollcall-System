@@ -10,12 +10,14 @@ class FacialRecognition:
 
     def __init__(self, targetFolder: str):
         FacialRecognition.TARGET_FOLDER = targetFolder
+
+        print(self.TARGET_FOLDER)
     #end
 
     def recognizeFace(self, imagePath: str, studentId: str):
         checkImagePath = imagePath 
         #targetImagePath = os.path.join(os.path.dirname(__name__), FacialRecognition.TARGET_FOLDER, studentId)
-        targetImagePath = FacialRecognition.TARGET_FOLDER + "/"+ studentId + ".png"
+        targetImagePath = FacialRecognition.TARGET_FOLDER + "/" + studentId + ".png"
         
         print(checkImagePath)
         print(targetImagePath)

@@ -12,6 +12,8 @@ import threading
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 
+import FacialRecognition
+
 
 class WebpageAPI:
 	LOGGER = None
@@ -19,9 +21,7 @@ class WebpageAPI:
 	UPLOAD_FOLDER = None
 	UPDATE_SIGNAL = None
     TARGET_FOLDER = None
-	API = Flask(__name__, template_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Template'),
-						  static_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Static'))
-
+    API = Flask(__name__, template_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Template'), static_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Static'))
 
 	def __init__(self, interface, port, upload_folder, update_signal, target_folder):
 		# initialize some important instance attribute
@@ -41,6 +41,8 @@ class WebpageAPI:
 		WebpageAPI.UPLOAD_FOLDER = upload_folder
 		WebpageAPI.UPDATE_SIGNAL = update_signal
         WebpageAPI.TARGET_FOLDER = target_folder
+
+        self.facialRecognition = FacialRecognition(WebpageAPI.TARGET_FOLDER)
 
 
 	# start the server in a seperate thread to solve the halting GUI problem
