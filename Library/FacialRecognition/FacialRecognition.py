@@ -1,13 +1,11 @@
 import os
 from deepface import DeepFace
+from icecream import ic
 
 
 class FacialRecognitionClass:
     TARGET_FOLDER = None
-    pass
-
-
-
+    
     def __init__(self, targetFolder: str):
         FacialRecognitionClass.TARGET_FOLDER = targetFolder
     #end
@@ -16,12 +14,11 @@ class FacialRecognitionClass:
         checkImagePath = imagePath 
         #targetImagePath = os.path.join(os.path.dirname(__name__), FacialRecognition.TARGET_FOLDER, studentId)
         targetImagePath = FacialRecognitionClass.TARGET_FOLDER + "/" + studentId + ".png"
-        
-        print(checkImagePath)
-        print(targetImagePath)
+
+        ic(f"comparing {imagePath} to target {studentId}")
         
         try:
-            if DeepFace.verify(targetImagePath, targetImagePath)['verified']:
+            if DeepFace.verify(checkImagePath, targetImagePath)['verified']:
                 return True
             else:
                 return False

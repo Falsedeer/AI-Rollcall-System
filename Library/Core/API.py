@@ -21,6 +21,7 @@ class WebpageAPI:
     UPLOAD_FOLDER = None
     UPDATE_SIGNAL = None
     TARGET_FOLDER = None
+    FACIAL_RECOGNITION = None
     API = Flask(__name__, template_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Template'), static_folder=os.path.join(os.path.dirname(__name__), '..', 'Site/Static'))
 
     def __init__(self, interface, port, upload_folder, update_signal, target_folder):
@@ -42,7 +43,7 @@ class WebpageAPI:
         WebpageAPI.UPDATE_SIGNAL = update_signal
         WebpageAPI.TARGET_FOLDER = target_folder
 
-        self.facialRecognition = FacialRecognition.FacialRecognitionClass(WebpageAPI.TARGET_FOLDER)
+        WebpageAPI.FACIAL_RECOGNITION = FacialRecognition.FacialRecognitionClass(WebpageAPI.TARGET_FOLDER)
 
 
     # start the server in a seperate thread to solve the halting GUI problem
@@ -99,6 +100,8 @@ class WebpageAPI:
             filename = secure_filename(snapshot.filename)
             filename = os.path.join(os.path.dirname(__name__), WebpageAPI.UPLOAD_FOLDER, filename)
             snapshot.save(filename)
+
+            print(WebpageAPI.FACIAL_RECOGNITION.recognizeFace(filename, NID))
 
             # emit the signal for rerendering the panel
             WebpageAPI.LOGGER.info("Emitting qt signal")
