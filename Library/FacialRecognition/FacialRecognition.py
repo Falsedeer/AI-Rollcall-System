@@ -20,11 +20,14 @@ class FacialRecognitionClass:
         
         try:
             if DeepFace.verify(checkImagePath, targetImagePath)['verified']:
+                ic("Face verify passed")
                 return True
             else:
+                ic("Face verify failed: wrong face")
                 return False
             #end
         except ValueError:
+            ic("Face verify failed: error")
             return False
         #end
     #end

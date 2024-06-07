@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {G
+document.addEventListener('DOMContentLoaded', function() {
     const webcamElement = document.getElementById('webcam');
     const canvasElement = document.getElementById('snapshot_image');
     const snapshotButton = document.getElementById('snapshot');
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {G
                 
                 // Force redirect
                 window.location.href = `/Success?NID=${encodeURIComponent(nid)}`;
-            });
+            })
             .catch(error => {
                 console.log('Error:', error.message);
                 alert('Face recognition failed. Please try again.');
