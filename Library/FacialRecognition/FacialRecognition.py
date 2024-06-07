@@ -10,6 +10,7 @@ class FacialRecognitionClass:
         FacialRecognitionClass.TARGET_FOLDER = targetFolder
     #end
 
+    # Face detection function, needs image path of the face to be detected and the nid of the student. Returns true/false or ValueError
     def recognizeFace(self, imagePath: str, studentId: str) -> bool:
         checkImagePath = imagePath 
         #targetImagePath = os.path.join(os.path.dirname(__name__), FacialRecognition.TARGET_FOLDER, studentId)
@@ -24,7 +25,7 @@ class FacialRecognitionClass:
                 return False
             #end
         except ValueError:
-            raise ValueError
+            return False
         #end
     #end
 #end

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {G
     const webcamElement = document.getElementById('webcam');
     const canvasElement = document.getElementById('snapshot_image');
     const snapshotButton = document.getElementById('snapshot');
@@ -76,12 +76,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST',
                 body: formData  // Send the formData with the image blob and NID
             })
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => { throw new Error(data.message); });
+                }
+                return response.text();
+            })
             .then(data => {
                 console.log('Success:', data);
                 
                 // Force redirect
                 window.location.href = `/Success?NID=${encodeURIComponent(nid)}`;
+            });
+            .catch(error => {
+                console.log('Error:', error.message);
+                alert('Face recognition failed. Please try again.');
             });
         }, 'image/png');
     });

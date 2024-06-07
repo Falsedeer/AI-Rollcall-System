@@ -101,7 +101,13 @@ class WebpageAPI:
             filename = os.path.join(os.path.dirname(__name__), WebpageAPI.UPLOAD_FOLDER, filename)
             snapshot.save(filename)
 
-            print(WebpageAPI.FACIAL_RECOGNITION.recognizeFace(filename, NID))
+            result = (WebpageAPI.FACIAL_RECOGNITION.recognizeFace(filename, NID))
+
+            if (not result):
+                return "Face doesn't match", 400
+            #end
+
+
 
             # emit the signal for rerendering the panel
             WebpageAPI.LOGGER.info("Emitting qt signal")
