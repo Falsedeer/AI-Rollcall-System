@@ -104,8 +104,10 @@ class WebpageAPI:
             result = (WebpageAPI.FACIAL_RECOGNITION.recognizeFace(filename, NID))
 
             if (not result):
+                os.remove(filename)
                 return "Face doesn't match", 400
             #end
+
 
 
 

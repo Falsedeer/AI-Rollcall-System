@@ -19,7 +19,7 @@ class FacialRecognitionClass:
         ic(f"comparing {imagePath} to target {studentId}")
         
         try:
-            if DeepFace.verify(checkImagePath, targetImagePath)['verified']:
+            if DeepFace.verify(checkImagePath, targetImagePath, model_name = 'Facenet')['verified']:
                 ic("Face verify passed")
                 return True
             else:
